@@ -33,6 +33,27 @@ python manage.py startapp <nameoftheapp>
 for the app
 
 
+### JINJA TEMPLATING 
+This is a syntax used to create django interfaces 
+- To create templates
+  a. Inside the templates you can create .html files , .css , .js 
+  b. To consolidate the templating for our project , modify the following 
+     - set a global templates directory for referencing our templates i.e. 
+       move the  todolist templates folder to the global perspective 
+       i.e. root directory level
+- register this change in settings.py for the project under the templates directory
+  settings 
+              'DIRS': [BASE_DIR / 'templates'],  # Add this line
+
+
+
+
+
+
+
+
+
+
 EMOBILIS DATABASE:  - student table : name, role , phone , studid
                     - staff table : name, role , phone , staffid
                     - assests table : name, price, serialno. 

@@ -1,0 +1,43 @@
+{% extends 'todolistapp/base.html' %}
+{% block content %}
+{# form : the action attribute indicates the file to process this form #}
+<form action="{% url 'add_task' %}" method="post">
+     {% csrf_token %}
+    <input type="text" name="task" placeholder="New Task">
+    <button type="submit">Add Task</button>
+</form>
+{#    create the list #}
+<h4>My tasks</h4>
+    <ul>
+         {% for task in tasks %}
+                <li>
+                    {{ task.task}}  -  completed {{ task.done }}
+                    {% if task.done %}
+                        Completed
+                   {% else %}
+                       <a href="{% url 'mark_complete' forloop.counter0 %}">
+                           Mark as Done</a>
+                   {% endif %}
+                <a href="{% url 'delete_task' forloop.counter0 %}">
+                    Delete This Task</a>
+                </li>
+{#             show this on no tasks#}
+             {% empty %}
+             <li>NO TASKS AVAILABLE</li>
+         {% endfor %}
+    </ul>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
