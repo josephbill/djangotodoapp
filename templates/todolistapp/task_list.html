@@ -11,14 +11,14 @@
     <ul>
          {% for task in tasks %}
                 <li>
-                    {{ task.task}}  -  completed {{ task.done }}
-                    {% if task.done %}
+                    {{ task.title}}  -  completed {{ task.completed }}
+                    {% if task.completed %}
                         Completed
                    {% else %}
-                       <a href="{% url 'mark_complete' forloop.counter0 %}">
+                       <a href="{% url 'mark_complete' task.id %}">
                            Mark as Done</a>
                    {% endif %}
-                <a href="{% url 'delete_task' forloop.counter0 %}">
+                <a href="{% url 'delete_task' task.id %}">
                     Delete This Task</a>
                 </li>
 {#             show this on no tasks#}

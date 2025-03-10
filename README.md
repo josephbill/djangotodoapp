@@ -47,10 +47,17 @@ This is a syntax used to create django interfaces
 
 
 
+### STEPS TO INCLUDE DB PERSISTENCY FOR PROJECTS IN DJANGO 
+models.py : converted to db tables by django 
+After defining our models.py 
+1/ python manage.py makemigrations appname 
+2/ python manage.py migrate 
 
-
-
-
+### STEPS TO ADD A DATA SOURCE 
+1. Double click on the db.sqlite3 file 
+2. Or simply from pycharm select the database icon 
+3. click the + sign or the prompt to create the data source
+   (for development use sqlite3)
 
 
 
