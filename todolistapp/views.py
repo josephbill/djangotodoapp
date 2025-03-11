@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Task
+from .models import Task,Taskers
 # Create your views here.
 """these functionalities take care of CRUD :-)"""
 def task_list(request):
@@ -9,9 +9,20 @@ def task_list(request):
     # tasks = request.session.get('tasks', [])
     # Fetching tasks from db
     tasks = Task.objects.all()
+    taskers = Taskers.objects.all()
     # the render() function returns a .html template
     return render(request, 'todolistapp/task_list.html',
-                  {"tasks" : tasks})
+                  {"tasks" : tasks, "taskers":taskers})
+
+def add_tasker(request):
+    """adds a new tasker"""
+    if request.method == "POST":
+        username = request.POST.get('user_tasker')
+        email = request.POST.get('user_email')
+        #save to db table
+        if username:
+            Taskers.objects.create(username=username, email=email)
+    return redirect('task_list')
 
 def add_task(request):
     """add new task to db table"""

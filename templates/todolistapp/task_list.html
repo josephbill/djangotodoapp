@@ -1,9 +1,26 @@
 {% extends 'todolistapp/base.html' %}
 {% block content %}
+{#    create the form to register taskers#}
+    <form action="{% url 'add_tasker' %}" method="post">
+         {% csrf_token %}
+    <input type="text" name="user_tasker" placeholder="New Tasker">
+        <input type="email" name="user_email" placeholder="Email">
+        <button type="submit">Add Tasker</button>
+    </form>
+    <br>
 {# form : the action attribute indicates the file to process this form #}
 <form action="{% url 'add_task' %}" method="post">
      {% csrf_token %}
     <input type="text" name="task" placeholder="New Task">
+{#    this is the taskers dropdown #}
+    <select name="tasker">
+         <option value="">Select a Tasker</option>
+        {% for tasker in taskers %}
+            <option value="{{ tasker.id }}">
+                {{ tasker.username }}
+            </option>
+        {% endfor %}
+    </select>
     <button type="submit">Add Task</button>
 </form>
 {#    create the list #}

@@ -60,6 +60,15 @@ After defining our models.py
    (for development use sqlite3)
 
 
+### RELATION DATABASES : DATABASE RELATIONSHIPS 
+1. One to Many Relationship 
+    - Taskers table (Contain the users who will perform the tasks)
+    - Task table (Contains the tasks)
+To establish a one to many relationship establish a ForiengKey
+    - a unique key pointing to a unique reference in another db 
+   table
+2. many to many relationship
+
 
 EMOBILIS DATABASE:  - student table : name, role , phone , studid
                     - staff table : name, role , phone , staffid
