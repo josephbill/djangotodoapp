@@ -28,9 +28,17 @@ def add_task(request):
     """add new task to db table"""
     if request.method == 'POST':
         title = request.POST.get('task')
+        tasker_id = request.POST.get('tasker')
         # save to db
         if title:
-            Task.objects.create(title=title)
+            #validating the id entered
+            tasker = Taskers.objects.get(id=tasker_id) if tasker_id else None
+            Task.objects.create(title=title,tasker=tasker)
+            messages.success(request, 'Tasker and task'
+                                      ' added successfully')
+        else:
+            messages.error(request, 'Please enter a valid tasker')
+
     return redirect('task_list')
 
 # def add_task(request):

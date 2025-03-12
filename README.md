@@ -69,10 +69,18 @@ To establish a one to many relationship establish a ForiengKey
    table
 2. many to many relationship
 
+### HOW TO ADD IMAGES (STATIC )
+1. Django uses static directory 
+project-root directory/ => static/ => images/ 
+2. Add {% load static %} at the top of the html file 
+3. Add this to the settings.py 
+STATIC_URL = "/static/"
 
-EMOBILIS DATABASE:  - student table : name, role , phone , studid
-                    - staff table : name, role , phone , staffid
-                    - assests table : name, price, serialno. 
+# Ensure Django knows where to find static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+remember to import OS 
 
 
 

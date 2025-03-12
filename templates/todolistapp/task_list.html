@@ -1,5 +1,8 @@
 {% extends 'todolistapp/base.html' %}
+{% load static %}
 {% block content %}
+    <img src="{% static 'images/logo.jpg' %}" width="200"
+         height="200"/>
 {#    create the form to register taskers#}
     <form action="{% url 'add_tasker' %}" method="post">
          {% csrf_token %}
@@ -29,6 +32,12 @@
          {% for task in tasks %}
                 <li>
                     {{ task.title}}  -  completed {{ task.completed }}
+                    <span>
+                        - Assigned to - {{ task.tasker.username }}
+                         <span>
+                        - Email to - {{ task.tasker.email }}
+                         </span>
+                    </span>
                     {% if task.completed %}
                         Completed
                    {% else %}
