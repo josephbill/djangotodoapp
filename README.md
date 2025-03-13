@@ -80,7 +80,58 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-remember to import OS 
+remember to import OS ''
+
+### DJANGO ADMIN 
+Create a super user for content management purposes 
+1. Register your models in admin.py 
+2. Creating a super admin user for the project 
+
+python manage.py createsuperuser 
+3. Visit the link appurl/admin - use the superuser credentials to login
+
+### DJANGO APIS (APPLICATION PROGRAMMING INTERFACE)
+Is a set of rules that allows different software apps to 
+communicate with each other 
+#### Think of an API as a waiter in a restaurant 
+1. You(Frontend/client) make an order(request)
+2. The waiter(API) takes the request to the kitchen(server/backend)
+3. The kitchen(server) prepares the food(process the request)
+4. The waiter(API) brings back the meal(response) to you 
+### TYPES OF APIS 
+1. REST API  => Uses HTTP methods ::
+- GET :: use this to request data from servers (default)
+- POST :: use this to save or send data to servers 
+- PUT :: use this to update on data on servers 
+- PATCH :: use this to update only a section of your data 
+- DELETE :: use this to remove data from your servers 
+2. GraphQL API => Allows clients/frontend to access data only when needed
+3. SOAP API => Uses XML methods / older (secure)
+4. WebSocket API => Enable real time data transfer (chat applications)
+### Steps to create an API project in DJANGO 
+1. Install djangorestframework :: pip install djangorestframework 
+2. Add djangorestframework as part of the installed apps 
+3. Have views return data as .json files 
+### JSON (JavaScript object notation)
+This is an interchangeable data format that can be used across any 
+application 
+
+ python manage.py startapp todolistappapi
+ pip install djangorestframework
+ pipx install djangorestframework
+
+
+FrontEnd(HTML <CSS (web) , Android(Jetpack compose) , React Native ,
+Reactjs)
+=> middleware => backend (server scripting(python->django), database)
+
+
+
+
+
+
+
+
 
 
 
