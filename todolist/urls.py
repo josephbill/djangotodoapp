@@ -19,7 +19,8 @@ from django.contrib import admin
 from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', include('todolistapp.urls')) #including the apps url
+    path('', include('todolistapp.urls')), #including the apps url
+    path('api/', include('todolistappapi.urls')) # api urls
 
 ]
 

@@ -112,13 +112,15 @@ communicate with each other
 1. Install djangorestframework :: pip install djangorestframework 
 2. Add djangorestframework as part of the installed apps 
 3. Have views return data as .json files 
+4. Create serializers (picking the data to showcase from the API) 
+In the app's api project create a serializers.py file 
 ### JSON (JavaScript object notation)
 This is an interchangeable data format that can be used across any 
 application 
 
  python manage.py startapp todolistappapi
- pip install djangorestframework
- pipx install djangorestframework
+ pip install djangorestframework : python 
+ pipx install djangorestframework --include-deps : python3
 
 
 FrontEnd(HTML <CSS (web) , Android(Jetpack compose) , React Native ,
