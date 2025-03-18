@@ -127,6 +127,23 @@ FrontEnd(HTML <CSS (web) , Android(Jetpack compose) , React Native ,
 Reactjs)
 => middleware => backend (server scripting(python->django), database)
 
+### AUTHENTICATION AND AUTHORIZATION 
+- Authentication :: IDENTITY MANAGEMENT :: WHO IS USING THE APP 
+- Authorization :: USER PRIVILEDGES :: WHAT USER CAN DO ONCE AUTHENTICATED 
+
+### STEPS IN CREATING AN AUTHENTICATION MODULE 
+1. Within settings.py of the project modify the authentication
+settings 
+a. LOGIN_URL :: ## redirect unauthenticated users back to the login screen 
+b. LOGIN_REDIRECT_URL :: ## After login what page will the user see 
+c. LOGOUT_REDIRECT_URL :: ## After logout , redirect user back to login 
+screen
+2. Create views function for the register, login and logout processes 
+3. Create the rendered/redirected templates 
+4. Register the urls to map to the authentication functions in views
+5. Do migrations :: python manage.py migrate
+
+http://loca
 
 
 
@@ -141,16 +158,10 @@ Reactjs)
 
 
 
-
-
-
-
-
-
-
-
-
-
+1. http://127.0.0.1:8000/ :: web app 
+2. http://127.0.0.1:8000/api/tasks/  :: API project 
+3. http://127.0.0.1:8000/admin :: Admin project 
+4. http://127.0.0.1:8000/register :: Sign Up page for the auth process
 
 
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList Register</title>
+</head>
+<body>
+<h2>Register</h2>
+{#collect user data#}
+<form method="post" action="{% url 'register' %}">
+     {% csrf_token %}
+{#    this part loads appropriate form as in views#}
+    {{ form.as_p }}
+    <button type="submit">Sign Up</button>
+</form>
+<p>Already have an account? <a href="{% url 'login' %}">
+</a>Login</p>
+</body>
+</html>
+
+
+
+
+
+
+
