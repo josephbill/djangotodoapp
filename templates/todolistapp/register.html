@@ -7,10 +7,15 @@
 <body>
 <h2>Register</h2>
 {#collect user data#}
-<form method="post" action="{% url 'register' %}">
+<form enctype="multipart/form-data"
+      method="post" action="{% url 'register' %}">
      {% csrf_token %}
 {#    this part loads appropriate form as in views#}
-    {{ form.as_p }}
+     {% for field in form %}
+         <label> {{ field.label }} </label>
+         {{ field }}
+         <small>{{ field.errors }}</small>
+    {% endfor %}
     <button type="submit">Sign Up</button>
 </form>
 <p>Already have an account? <a href="{% url 'login' %}">

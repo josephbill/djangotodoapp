@@ -4,20 +4,20 @@ from .models import Task,Taskers
 from django.contrib.auth import authenticate, login , logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-
+from .forms import CustomUserCreationForm
 # Create your views here.
 """authentication view functions"""
 # user registration (sign up)
 def register(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         # check if the form entries are valid
         if form.is_valid():
             #capturing the details for registration and saving them to db
             form.save()
             return redirect('login')
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'todolistapp/register.html',
                       {'form': form})
 
@@ -26,21 +26,23 @@ def user_login(request):
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
-            user = form.get_user() ## if user exists in db we get the record obj
-            login(request, user)
+            user = form.get_user() ## picks the inputs from the form
+            login(request, user) ## if user exists in db we get the record obj
             return redirect('task_list')
     else:
         form = AuthenticationForm()
     return render(request, 'todolistapp/login.html',
                   {'form': form})
 
-def logout(request):
+def logout_user(request):
     logout(request)
     return redirect('login')
 
 
 
 """these functionalities take care of CRUD :-)"""
+
+@login_required(login_url='login')
 def task_list(request):
     """this function collects the task items"""
     # [] empty list is a default if tasks are empty

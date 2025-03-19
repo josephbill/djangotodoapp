@@ -143,7 +143,27 @@ screen
 4. Register the urls to map to the authentication functions in views
 5. Do migrations :: python manage.py migrate
 
-http://loca
+### EXTENDING THE DJANGO AUTH USER MODEL 
+1. Import the class AbstractUser in our models.py 
+2. Create the custom user class , name should be CustomUser
+3. Tell django to use the custom model for the user : settings.py
+4. Update our forms to also use the custom model 
+   a. create a forms.py in the app folder , write out our custom
+   user form 
+5. Update the views function to use the custom model / form
+6. Updating the templates to reflect the new inputs :: register.html
+7. Ensure that our django can handle media 
+   a. inside settings.py media_url , media_root 
+  b. urls.py include the media reference as part of the urlpatterns 
+8. reset the database and make new migrations  
+     - delete the migrations folder 
+     - python manage.py migrate todolistapp zero
+    - python manage.py makemigrations appname 
+    - python manage.py migrate 
+
+
+
+
 
 
 
