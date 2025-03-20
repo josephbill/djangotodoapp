@@ -10,7 +10,7 @@ from .forms import CustomUserCreationForm
 # user registration (sign up)
 def register(request):
     if request.method == "POST":
-        form = CustomUserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST, request.FILES)
         # check if the form entries are valid
         if form.is_valid():
             #capturing the details for registration and saving them to db

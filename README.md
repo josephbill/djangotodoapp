@@ -155,9 +155,10 @@ screen
 7. Ensure that our django can handle media 
    a. inside settings.py media_url , media_root 
   b. urls.py include the media reference as part of the urlpatterns 
+8. pip install pillow :: package to allow file uploads 
 8. reset the database and make new migrations  
-     - delete the migrations folder 
-     - python manage.py migrate todolistapp zero
+     - delete the migration.py file in the migrations folder 
+     - delete the db.sqlite file
     - python manage.py makemigrations appname 
     - python manage.py migrate 
 
