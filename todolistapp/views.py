@@ -47,13 +47,15 @@ def task_list(request):
     """this function collects the task items"""
     # [] empty list is a default if tasks are empty
     # tasks = request.session.get('tasks', [])
-    # Fetching tasks from db
-    tasks = Task.objects.all()
+    # Fetching tasks from db createdn by the logged in user
+    # tasks = Task.objects.all()
+    tasks = Task.objects.filter(user=request.user) # request.user = logged in
     taskers = Taskers.objects.all()
     # the render() function returns a .html template
     return render(request, 'todolistapp/task_list.html',
                   {"tasks" : tasks, "taskers":taskers})
 
+@login_required(login_url='login')
 def add_tasker(request):
     """adds a new tasker"""
     if request.method == "POST":
@@ -64,6 +66,7 @@ def add_tasker(request):
             Taskers.objects.create(username=username, email=email)
     return redirect('task_list')
 
+@login_required(login_url='login')
 def add_task(request):
     """add new task to db table"""
     if request.method == 'POST':
@@ -73,7 +76,7 @@ def add_task(request):
         if title:
             #validating the id entered
             tasker = Taskers.objects.get(id=tasker_id) if tasker_id else None
-            Task.objects.create(title=title,tasker=tasker)
+            Task.objects.create(title=title,tasker=tasker,user=request.user)
             messages.success(request, 'Tasker and task'
                                       ' added successfully')
         else:

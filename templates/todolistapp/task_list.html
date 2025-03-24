@@ -3,11 +3,16 @@
 {% block content %}
     <img src="{% static 'images/logo.jpg' %}" width="200"
          height="200"/>
+    <img src="{{ user.profile_picture.url }}" alt=""
+    width="200" height="200">
 {#    activating the logout #}
     <span>
          <a href="{% url 'logout' %}"> Logout  </a>
     </span>
 {#    create the form to register taskers#}
+{#    greet our logged in user #}
+{#    in jinja templating we have access to the {{ user }} object  }}#}
+    <h4>  Welcome to the todolistapp {{ user.username }}  </h4>
     <form action="{% url 'add_tasker' %}" method="post">
          {% csrf_token %}
     <input type="text" name="user_tasker" placeholder="New Tasker">

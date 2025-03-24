@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth import get_user_model
 # create a custom user model
 class CustomUser(AbstractUser):
     phone_number = models.CharField(max_length=15, unique=True, blank=True,
@@ -28,6 +29,11 @@ class Task(models.Model):
     # here establishing a one to many relationship using a FK
     tasker = models.ForeignKey(Taskers, on_delete=models.SET_NULL, null=True,
                                blank=True)
+    # this tags the user who creates the task
+    # run migration after change
+    # python manage.py makemigrations appname  /   python manage.py migrate
+    user = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL,
+                             null=True, blank=True)
     def __str__(self):
         return self.title
 
