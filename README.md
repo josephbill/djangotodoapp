@@ -162,6 +162,23 @@ screen
     - python manage.py makemigrations appname 
     - python manage.py migrate 
 
+### To change repo url from clone process 
+> git remote set-url origin  <repo url>
+> 
+> ### lINUX 
+> Install Intellij IDEA COMMUNITY FOR KOTLIN 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
