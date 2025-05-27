@@ -25,7 +25,11 @@ SECRET_KEY = "django-insecure-go5w5%r)n*dqr&px&-y#uf4fiyi%s!4=ko1o+k606)l%st%!!!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '9b5d-197-237-118-180.ngrok-free.app'
+]
 
 
 # Application definition
@@ -136,3 +140,18 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}

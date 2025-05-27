@@ -42,7 +42,7 @@ def logout_user(request):
 
 """these functionalities take care of CRUD :-)"""
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def task_list(request):
     """this function collects the task items"""
     # [] empty list is a default if tasks are empty

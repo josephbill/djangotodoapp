@@ -18,6 +18,11 @@ class TaskerRetrieveUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
 class TaskListCreate(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+    # THIS WILL ALLOW LOGS OF THE REQUEST FROM THE ANDROID APP>
+    def create(self, request, *args, **kwargs):
+        print("🔥 ANDROID PAYLOAD RECEIVED:", request.data)
+        return super().create(request, *args, **kwargs)
+
 
 class TaskRetrieveUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()

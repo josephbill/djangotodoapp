@@ -7,7 +7,13 @@ class TaskersSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class TaskSerializer(serializers.ModelSerializer):
-    tasker = TaskersSerializer(read_only=True)
+    #  this variable will handle the get process
+    tasker_detail = TaskersSerializer(source='tasker', read_only=True)
+    # this variable will handle the post requests
+    tasker = serializers.PrimaryKeyRelatedField(queryset=Taskers.objects.all())
+
     class Meta:
         model = Task
         fields = '__all__'
+
+
