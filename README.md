@@ -167,6 +167,26 @@ screen
 > 
 > ### lINUX 
 > Install Intellij IDEA COMMUNITY FOR KOTLIN 
+> 
+
+### CLOUDINARY AND DJANGO 
+1. install cloudinary lib package : pip install cloudinary django-cloudinary-storage 
+2. Configure the apps in settings.py : cloudinary, cloudinary_storage
+3. Configure the cloudinary credentials and storage settings in settings.py : get this on your cloudinary.com account 
+4. Update model for image url field
+5. Update a views functions to enable handling of multipart form data , this is required for image uploads as the same cannot have a
+selection over JSON body submissions : Update TaskListCreate
+6. Migrate the changes 
+
+Test over postman 
+
+curl -X POST http://localhost:8000/api/tasks/ \
+  -F "title=Test Task" \
+  -F "description=Hello world" \
+  -F "tasker=1" \
+  -F "image=@/path/to/image.jpg"
+
+
 
 
 

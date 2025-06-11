@@ -28,9 +28,17 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '9b5d-197-237-118-180.ngrok-free.app'
+    'aa96-102-1-231-79.ngrok-free.app'
 ]
 
+### CLOUDINARY CREDENTIALS SESSION
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'your cloud name',
+    'API_KEY': 'your api key',
+    'API_SECRET': 'your api secret',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Application definition
 
@@ -43,7 +51,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "todolistapp",
     "todolistappapi",
-    "rest_framework"
+    "rest_framework",
+    "cloudinary",
+    "cloudinary_storage",
 ]
 
 MIDDLEWARE = [
